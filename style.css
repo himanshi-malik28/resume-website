@@ -1,0 +1,195 @@
+/* ============================================
+   COLOR PALETTE (CSS variables, used everywhere)
+   ============================================ */
+:root {
+  --ink: #1f2a44;        /* dark navy: headings, navbar */
+  --paper: #f6f3fa;      /* soft lavender-white: page background */
+  --accent: #6c4ab6;     /* purple: links, highlights */
+  --soft: #e4dcf3;       /* light purple: card borders, skill tags */
+  --text: #2b2b38;       /* body text */
+}
+
+/* ============================================
+   ELEMENT SELECTORS: base styles for the whole page
+   ============================================ */
+* {
+  box-sizing: border-box;   /* padding never makes boxes wider than expected */
+}
+
+html {
+  scroll-behavior: smooth;  /* navbar links glide to sections */
+}
+
+body {
+  margin: 0;
+  font-family: "Work Sans", Arial, sans-serif;  /* body font */
+  line-height: 1.7;                              /* comfortable reading spacing */
+  color: var(--text);
+  background: var(--paper);
+}
+
+h1, h2, h3 {
+  font-family: "Young Serif", Georgia, serif;   /* heading font */
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--accent);
+}
+
+/* ============================================
+   NAVBAR: flexbox puts logo left and links right
+   ============================================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;  /* logo on left, menu on right */
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 16px 40px;
+  background: var(--ink);
+  position: sticky;                /* stays visible while scrolling */
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-family: "Young Serif", Georgia, serif;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;                   /* lays links in a row */
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+  border-bottom-color: var(--soft);  /* underline appears on hover */
+}
+
+/* ============================================
+   LAYOUT: sections are centered with a max width
+   ============================================ */
+section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.hero {
+  padding-top: 88px;
+  padding-bottom: 56px;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  margin: 0 0 8px;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin: 0 0 20px;
+}
+
+/* ============================================
+   CARDS: grid layout for Education and Projects
+   ============================================ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));  /* wraps on small screens */
+  gap: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--soft);
+  border-left: 5px solid var(--accent);   /* accent edge marks each card */
+  border-radius: 8px;
+  padding: 20px 22px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+}
+
+.card p {
+  margin: 0;
+}
+
+.meta {
+  color: #5d5d70;
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   SKILLS: flexbox tags that wrap to new lines
+   ============================================ */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-list li {
+  background: var(--soft);
+  color: var(--ink);
+  padding: 6px 16px;
+  border-radius: 999px;      /* pill shape */
+  font-weight: 500;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  text-align: center;
+  padding: 28px;
+  background: var(--ink);
+  color: #ffffff;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ============================================
+   MOBILE: smaller padding and heading on phones
+   ============================================ */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 14px 20px;
+    justify-content: center;
+    gap: 8px;
+  }
+  .nav-links {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+}
